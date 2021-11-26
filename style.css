@@ -15,10 +15,11 @@ body{
 display:-moz-inline-grid;
  display: grid;
 transition:0.5s;
- padding:35px 20px 15px 25px;
+ padding:50px 20px 15px 25px;
  grid-template-columns: repeat(auto-fit,minmax(275px,1fr));
-  grid-gap:30px;
-  -moz-grid-gap:30px;
+ 
+  grid-gap:30px 20px;
+  -moz-grid-gap:30px 20px ;
  width:100%;
  -moz-transform:skew(0deg);
 -webkit-transform:skew(0deg);
@@ -30,24 +31,22 @@ transition:0.5s;
  position:relative;
  background:#fff;
  height:400px;
-overflow:hidden;
- -webkit-transition: 0.5s;
- -moz-transition: 0.5s;
- transition: 0.5s;
-}
-@media screen and (orientation: landscape){
- .container{
-  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
- }
-}
-.container .box:hover{
  -webkit-transform: translateY(-15px);
 -moz-transform: translateY(-15px);
  transform: translateY(-15px);
- -webkit-transition: 0.5s;
- -moz-transition: 0.5s;
- transition: 0.5s;
+ -webkit-transition: 0.5s ease-in-out;
+ -moz-transition: 0.5s ease-in-out;
+ transition:0.5s ease-in-out;
  overflow: visible;
+}
+.box:hover{
+  overflow: hidden;
+   -webkit-transform: translateY(0);
+   -moz-transform: translateY(0);
+   transform: translateY(0);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  transition:0.5s ease-in-out;
 }
 .container .box:before{
  position:absolute;
@@ -82,13 +81,14 @@ overflow:hidden;
  transform:skewY(45deg);
  background:#ff8759;
  border-bottom: 200px solid #d9d9d9;
-  -webkit-transition: 0.5s;
- -moz-transition: 0.5s;
- transition:0.5s;
+  -webkit-transition: 0.5s ease-in-out;
+ -moz-transition: 0.5s ease-in-out;
+ transition:0.5s ease-in-out;
 }
 .box .img-box{
  position:relative;
- height:50%;
+ min-height:50%;
+ max-height: 300px;
  width:100%;
 }
 .box .img-box img{
@@ -96,7 +96,7 @@ overflow:hidden;
  width:100%;
  height:100%;
  object-fit:cover;
- object-position: top;
+ 
 }
 .box .content{position:relative;
  width:100%;
@@ -130,8 +130,6 @@ left:0;
  transform:skewX(45deg);
  pointer-events: none;
 
-}
-.box:hover .content:before{
  -webkit-transform:translateY(15px) skewX(45deg);
  -moz-transform:translateY(15px) skewX(45deg);
  transform:translateY(15px) skewX(45deg);
@@ -146,4 +144,9 @@ left:0;
  text-decoration: none;
  text-transform: uppercase;
  margin-top:10px;
+}
+@media screen and (orientation: landscape){
+ .container{
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+ }
 }
